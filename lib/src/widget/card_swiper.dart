@@ -124,6 +124,9 @@ class CardSwiper extends StatefulWidget {
   /// Must be a positive value. Defaults to Offset(0, 40).
   final Offset backCardOffset;
 
+  /// Prevents pivot from different points when swiping from different locations.
+  final bool boolPreventInversePivot;
+
   const CardSwiper({
     required this.cardBuilder,
     required this.cardsCount,
@@ -144,6 +147,7 @@ class CardSwiper extends StatefulWidget {
     this.numberOfCardsDisplayed = 2,
     this.onUndo,
     this.backCardOffset = const Offset(0, 40),
+    this.boolPreventInversePivot = false,
     super.key,
   })  : assert(
           maxAngle >= 0 && maxAngle <= 360,

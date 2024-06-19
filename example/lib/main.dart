@@ -44,9 +44,12 @@ class _ExamplePageState extends State<Example> {
                 cardsCount: cards.length,
                 onSwipe: _onSwipe,
                 onUndo: _onUndo,
-                numberOfCardsDisplayed: 3,
-                backCardOffset: const Offset(40, 40),
+                maxAngle: 45,
+                numberOfCardsDisplayed: 2,
+                backCardOffset: Offset.zero,
                 padding: const EdgeInsets.all(24.0),
+                allowedSwipeDirection: const AllowedSwipeDirection.symmetric(horizontal: true),
+                boolPreventInversePivot: true,
                 cardBuilder: (
                   context,
                   index,
@@ -70,8 +73,7 @@ class _ExamplePageState extends State<Example> {
                     child: const Icon(Icons.keyboard_arrow_left),
                   ),
                   FloatingActionButton(
-                    onPressed: () =>
-                        controller.swipe(CardSwiperDirection.right),
+                    onPressed: () => controller.swipe(CardSwiperDirection.right),
                     child: const Icon(Icons.keyboard_arrow_right),
                   ),
                   FloatingActionButton(
@@ -79,8 +81,7 @@ class _ExamplePageState extends State<Example> {
                     child: const Icon(Icons.keyboard_arrow_up),
                   ),
                   FloatingActionButton(
-                    onPressed: () =>
-                        controller.swipe(CardSwiperDirection.bottom),
+                    onPressed: () => controller.swipe(CardSwiperDirection.bottom),
                     child: const Icon(Icons.keyboard_arrow_down),
                   ),
                 ],
